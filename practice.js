@@ -9,7 +9,7 @@
 ////////// PROBLEM 1 //////////
 
 // Do not edit the code below.
-var arr = [10,20,30];
+var arr = [10, 20, 30];
 // Do not edit the code above.
 
 /*
@@ -17,14 +17,14 @@ var arr = [10,20,30];
   Return the first item in the given array.
 */
 
-//Code Here
-
-
+const first = arr => {
+  return arr[0];
+};
 
 ////////// PROBLEM 2 //////////
 
 // Do not edit the code below.
-var arr = [40,50,60];
+var arr = [40, 50, 60];
 // Do not edit the code above.
 
 /*
@@ -32,9 +32,9 @@ var arr = [40,50,60];
   Return the last item in the given array.
 */
 
-//Code Here
-
-
+const last = arr => {
+  return arr[arr.length - 1];
+};
 
 ////////// PROBLEM 3 //////////
 
@@ -47,9 +47,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
   Loop through the given array and alert every item in the array.
 */
 
-//Code Here
-
-
+function looper(family) {
+  for (let i = 0; i < family.length; i++) {
+    alert(family[i]);
+  }
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -62,14 +64,16 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
   Loop backwards, starting at the end of the letters array, alerting every item in the array.
 */
 
-//Code Here
-
-
+const reversedLooper = function(letters) {
+  for (let i = letters.length - 1; i >= 0; i--) {
+    alert(letters[i]);
+  }
+};
 
 ////////// PROBLEM 5 //////////
 
 // Do not edit the code below.
-var nums = [1,2,3,6,22,98,45,23,22,12];
+var nums = [1, 2, 3, 6, 22, 98, 45, 23, 22, 12];
 // Do not edit the code above.
 
 /*
@@ -77,27 +81,19 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
   Return an array that contains the even numbers from the nums array.
 */
 
-//Code Here
+const evenFinder = nums => {
+  return nums.filter(num => num % 2 === 0);
+};
 
-
-
-
-
-
+// console.log(evenFinder(nums));
 
 /////////////////////// EXTRA PRACTICE PROBLEMS BELOW ////////////////////
 ////////// MOVE ONTO NEXT SECTION BEFORE WORKING ON THESE ////////////////
 
-
-
-
-
-
-
 ////////// PROBLEM 6 //////////
 
 // Do not edit the code below.
-var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
+var numbersArray = [1, 2, 34, 54, 55, 34, 32, 11, 19, 17, 54, 66, 13];
 // Do not edit the code above.
 
 /*
@@ -106,9 +102,20 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
   and the second item in the array being the odds array (all the odd values from numbersArray).
 */
 
-//Code Here
+function divider(numbersArray) {
+  let newArr = [[], []];
+  for (let i = 0; i < numbersArray.length; i++) {
+    if (numbersArray[i] % 2 === 0) {
+      // console.log(numbersArray[i]);
+      newArr[0].push(numbersArray[i]);
+    } else {
+      newArr[1].push(numbersArray[i]);
+    }
+  }
+  return newArr;
+}
 
-
+// console.log(divider(numbersArray));
 
 ////////// PROBLEM 7 //////////
 
@@ -127,10 +134,17 @@ var getRandomArbitrary = function() {
   Loop through the array to see if randomNumber is in the array. 
   If it is, return true, if it's not, return false
 */
+const finder = arr => {
+  let randomNumber = getRandomArbitrary();
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === randomNumber) {
+      return true;
+    }
+  }
+  return false;
+};
 
-//Code Here
-
-
+console.log(finder([1, 2, 3, 4, 5]));
 
 ////////// PROBLEM 8 //////////
 
@@ -157,9 +171,27 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   addItem() --> [];
 */
 
-//Code Here
+const removeItem = (myGroceryList, item) => {
+  if (myGroceryList && item) {
+    for (let i = 0; i < myGroceryList.length; i++) {
+      if (myGroceryList[i] === item) {
+        myGroceryList.splice(i, 1);
+      }
+    }
+    return myGroceryList;
+  } else {
+    return [];
+  }
+};
 
-
+const addItem = (myGroceryList, item) => {
+  if (myGroceryList && item) {
+    myGroceryList.push(item);
+    return myGroceryList;
+  } else {
+    return [];
+  }
+};
 
 ////////// PROBLEM 9 //////////
 
@@ -167,9 +199,15 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 */
 
-//Code Here
+const maker = () => {
+  let newArr = [];
+  for (let i = 1; i <= 215; i++) {
+    newArr.push(i);
+  }
+  return newArr;
+};
 
-
+maker();
 
 ////////// PROBLEM 10 //////////
 
@@ -182,10 +220,16 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   Return a new array after adding ten to each item in numbers. 
   Your output should look like this -> [15, 19, 26, 29, 35, 44, 58]
 */
-  
-//Code Here
 
+const addTen = numbers => {
+  let newArr = [];
+  for (let i = 0; i < numbers.length; i++) {
+    newArr.push(numbers[i] * 1 + 10);
+  }
+  return newArr;
+};
 
+// console.log(addTen(numbers));
 
 ////////// PROBLEM 11 //////////
 
@@ -194,10 +238,10 @@ var num1 = Math.floor(Math.random() * 30);
 var num2 = Math.floor(Math.random() * 30);
 var arr1 = [];
 var arr2 = [];
-for(var i = 0; i < num1; i++){
+for (var i = 0; i < num1; i++) {
   arr1.push(i);
 }
-for(var i = 0; i < num2; i++){
+for (var i = 0; i < num2; i++) {
   arr2.push(i);
 }
 // Do not edit the code above.
@@ -208,9 +252,13 @@ for(var i = 0; i < num2; i++){
   Return the longer of the two arrays.
 */
 
-//Code Here
-
-
+const longer = (arr1, arr2) => {
+  if (arr1.length > arr2.length) {
+    return arr1;
+  } else {
+    return arr2;
+  }
+};
 
 /*
   As a continuation of the previous problem, write another function called 'both'.
@@ -220,9 +268,19 @@ for(var i = 0; i < num2; i++){
   Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
-//Code Here
+const both = (arr1, arr2) => {
+  let newArr = [];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let k = 0; k < arr2.length; k++) {
+      if (arr1[i] == arr2[k]) {
+        newArr.push(arr1[i]);
+      }
+    }
+  }
+  return newArr;
+};
 
-
+// console.log(both(arr1, arr2));
 
 ////////// PROBLEM 12 //////////
 
@@ -230,27 +288,27 @@ for(var i = 0; i < num2; i++){
 var devMountainEmployees = [];
 
 var joe = {
-    name: 'Joe',
-    position: 'Instructor',
-    spiritAnimal: 'Honey Badger'
+  name: 'Joe',
+  position: 'Instructor',
+  spiritAnimal: 'Honey Badger'
 };
 
 var cahlan = {
-    name: 'Cahlan',
-    position: 'CEO',
-    spiritAnimal: 'butterfly'
+  name: 'Cahlan',
+  position: 'CEO',
+  spiritAnimal: 'butterfly'
 };
 
 var ryan = {
-    name: 'Ryan',
-    position: 'Marketing',
-    spiritAnimal: 'fox'
+  name: 'Ryan',
+  position: 'Marketing',
+  spiritAnimal: 'fox'
 };
 
 var colt = {
-    name: 'Colt',
-    position: 'Everything really',
-    spiritAnimal: 'Young Male Horse'
+  name: 'Colt',
+  position: 'Everything really',
+  spiritAnimal: 'Young Male Horse'
 };
 // Do not edit the code above.
 
@@ -261,30 +319,30 @@ var colt = {
   After that, console.log the length of the Array and make sure that it's equal to 4. 
 */
 
-//Code Here
-
-
+devMountainEmployees.push(joe, cahlan, ryan, colt);
+// console.log(devMountainEmployees.length);
 
 /*
   Now let's say Cahlan has to take a leave of absence.
   Loop through your devMountainEmployees until you find cahlan, then remove him from the array.
 */
 
-//Code Here
-
-
+for (let i = 0; i < devMountainEmployees.length; i++) {
+  if (devMountainEmployees[i] === cahlan) {
+    devMountainEmployees.splice(i, 1);
+  }
+}
+// console.log(devMountainEmployees)
+// console.log(devMountainEmployees.length)
 
 ////////// PROBLEM 13 //////////
-
 
 /*
   A very clean way to pass around large LISTS (arrays) of COLLECTIONS (objects) of data is to have an array full of objects. 
   Create an empty array called users.
 */
 
-//Code Here
-
-
+const users = [];
 
 /*
   Now add three user objects to your users array. Each user object should contain the following properties: name, email, password, username.
@@ -296,16 +354,28 @@ var colt = {
 
 // Do not edit the code below.
 var user1 = {
-    name: 'Mark McIver',
-    email: 'mark.mciver@devmounta.in',
-    password: 'hunter2',
-    username: 'ihazcode'
+  name: 'Mark McIver',
+  email: 'mark.mciver@devmounta.in',
+  password: 'hunter2',
+  username: 'ihazcode'
 };
 // Do not edit the code above.
 
-//Code Here
+var user2 = {
+  name: 'Steven Davis',
+  email: 's.davis@gmail.com',
+  password: 'steven2',
+  username: 'sdavis'
+};
 
+var user3 = {
+  name: 'Lisa Woodard',
+  email: 'l.woodard@gmail.com',
+  password: 'lisa2',
+  username: 'lwoodard'
+};
 
+users.push(user1, user2, user3);
 
 /*
   Now you have a very common data structure. 
@@ -317,9 +387,11 @@ var user1 = {
   Once you find the array index he's located in, delete him from the array.
 */
 
-//Code Here
-
-
+for (let i = 0; i < users.length; i++) {
+  if (users[i].email === 'mark.mciver@devmounta.in') {
+    users.splice(i, 1);
+  }
+}
 
 /*
   The activity we just did is very much how data works in 'the real world'.
